@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Analyzer</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <style>
+        body {
+            background-image: url("static/flights-airlines-airline-flight-delay-compensation-holidays-2019-1110540.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+        #pie_chart {
+    background-color: transperent;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+
+        <form action="#">
+            <div class="form flight">
+
+                <div class="details flight">
+                </div>
+            <body>
+                <h1 style="color:white;" >Flight Delay Status Prediction </h1>
+                <p style="color:white;">Answer: {{ answer }}</p>
+                <p style="color:white;">Percentage: {{ percentage }}</p>
+                <div id='pie_chart'></div>
+
+                <script>
+                    var pieDiv = document.getElementById("pie_chart");
+                    var traceA = {
+                    type: "pie",
+                    values: [{{percentage}},100-{{percentage}}],
+                    labels: ['Probabilty of the flight getting delayed', 'Probabilty of the flight being on-time']
+                    };
+                    var data = [traceA];
+                    var layout = {
+                    title: "Pie Chart detailing the percentage distribution of flight delay",
+                    };
+                    Plotly.plot(pieDiv, data, layout);
+                </script>
+            </body>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

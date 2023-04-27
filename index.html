@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Analyzer</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    body {
+        background-image: url("static/jeshoots-com-mSESwdMZr-A-unsplash resized.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        {% if error_message %}
+            <p>{{ error_message }}</p>
+        {% endif %}
+
+    }
+</style>
+<style>
+    header {
+      font-family: 'Poppins', sans-serif; /* Replace with the font you prefer */
+      font-size: 32px; /* Adjust the font size to your liking */
+      font-weight: 600; /* Adjust the font weight to your liking */
+      text-align: center; /* Center the header */
+      margin-top: 50px; /* Add some margin to the top */
+    }
+  </style>
+<body>
+    <div class="container">
+
+        <header>Flight Delay Status Prediction</header>
+
+        <form action="{{url_for('generate')}}" method = "POST">
+            <div class="form flight">
+
+                <div class="details flight">
+
+                    <div class="fields">
+
+                        <div class="input-field">
+                            <label for="origin">Origin</label>
+                            <select name="origin" id="origin" required>
+                                
+                                    <option disabled selected>Select Origin</option>
+                                    <option value='2'>ORD</option>
+                                    <option value='0'>ATL</option>
+                                    <option value='1'>DEN</option>
+                                
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="destination">Destination</label>
+                            <input type="text" select name="destination" id="destination" placeholder="Enter Your Destination" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="date">Date</label>
+                            <input type="date" name = "date_input" placeholder="Enter Date" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="airline-name">Airline Name</label>
+                            <select name="airline-name" id="airline-name" required>
+                                
+                                <option disabled selected>Select Airline Name</option>
+                                    <option value='0'>Endeavor Air</option>
+                                    <option value='1'>American Airlines</option>
+                                    <option value='2'>Alaska Airlines</option>
+                                    <option value='3'>Trans States Airlines</option>
+                                    <option value='4'>JetBlue Airways</option>
+                                    <option value='5'>Commutair Aka Champlain Enterprises</option>
+                                    <option value='6'>Compass Airlines</option>
+                                    <option value='7'>Delta Airlines</option>
+                                    <option value='8'>ExpressJet Airlines</option>
+                                    <option value='9'>Frontier Airlines</option>
+                                    <option value='10'>Allegiant Air</option>
+                                    <option value='11'>GoJet Airlines</option>
+                                    <option value='12'>Envoy Air</option>
+                                    <option value='13'>Spirit Airlines</option>
+                                    <option value='14'>Comair Inc.</option>
+                                    <option value='15'>Skywest Airlines</option>
+                                    <option value='16'>Capital Cargo International</option>
+                                    <option value='17'>Horizon Air</option>
+                                    <option value='18'>United Airlines</option>
+                                    <option value='19'>Virgin America</option>
+                                    <option value='20'>Southwest Airlines</option>
+                                    <option value='21'>Mesa Airlines Inc.</option>
+                                    <option value='22'>Republic Airlines</option>
+                                    <option value='23'>Air Wisconsin Airlines Corp.</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="arrival-time">Arrival Time</label>
+                            <input type="time" name="arrival-time" id="arrival-time" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="departure-time">Departure Time</label>
+                            <input type="time" name="departure-time" id="departure-time" required>
+                        </div>
+
+                        <button class="nextBtn" type="submit" value="generate">
+                            <span class="btnText">Submit</span>
+                            <i class="fa fa-clock-o"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
