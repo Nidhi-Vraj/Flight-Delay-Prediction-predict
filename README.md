@@ -1,11 +1,8 @@
 # Flight-Delay-Prediction-predict
-# Nidhi Vraj
-# Hanish Chidipothu
-# Anuja K Merwade
-# Himani Borana
+
 Created an website to predict a flight  delay
 
-# Problem and Data Description
+## Problem and Data Description
 
 The unpleasant reality of travel is that there will always be
 delays. Flight delays are progressively getting worse, which
@@ -40,7 +37,7 @@ various reasons, including:
 and other factors that affect the flight departures and arrivals.
 
 
-# Data Preprocessing & Exploratory Data Analysis
+## Data Preprocessing & Exploratory Data Analysis
 
 Data mining is an essential technique for extracting useful
 insights and knowledge from large datasets to improve the
@@ -82,31 +79,31 @@ data was appropriate and did not impact the integrity of our
 analysis results.
 
 
-# Algorithm and Methodology
+## Algorithm and Methodology
 
-1.) Importing the necessary packages: pandas, numpy, scikit
-learn (for LabelEncoder, StandardScaler, and train test split,
+1. Importing the necessary packages: pandas, numpy, scikit
+learn for LabelEncoder, StandardScaler, and train test split,
 xgboost, os, pickle and Flask.
-2.) The load data function reads three CSV files containing
+2. The load data function reads three CSV files containing
 flight data from three airports ORD, DEN, and ATL
 concatenates them into a single data frame creates a new column
 FLIGHTSTATUS to represent whether the flight was
 delayed or not, and selects a subset of columns that will be
 used in the model.
-3.) The preprocessing function handles missing values,
+3. The preprocessing function handles missing values,
 encodes categorical variables using LabelEncoder, standardizes
 numerical variables using StandardScaler, and saves the
 scaler and LabelEncoder objects as pickle files to be used for
 new data.
-4.) The model create function splits the data into features
+4. The model create function splits the data into features
 and target, creates an XGBoost classifier, fits the model to the
 data, and saves the trained model as a pickle file.
-5.) The predict ans function loads the trained model,
+5. The predict ans function loads the trained model,
 scaler, and LabelEncoder from pickle files, applies the same
 pre processing steps used for the training data to a new flight,
 predicts the probability and the status of the flight, and returns
 the results.
-6.) The Flask application has two routes: home page and
+6. The Flask application has two routes: home page and
 prediction page . The home page is a simple HTML page that contains a form for user input. The prediction page takes the
 input data, creates a new flight data frame, checks if a trained
 model exists as a pickle file, if it doesn’t exist, the function
@@ -114,10 +111,10 @@ loads, preprocesses, and trains the data, and then predicts the
 results. If the model exists, it just loads the model and makes
 the prediction. Finally, it returns the result to the user via an
 HTML template.
-7.) The app.run command at the end of the script starts
+7. The app.run command at the end of the script starts
 the Flask application in debug mode.
 
-# Summary and Conclusion
+## Summary and Conclusion
 
 Based on our analysis of the flight delay dataset, we have
 decided to use the XGBoost classifier model to predict flight
